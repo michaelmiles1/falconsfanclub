@@ -55,7 +55,7 @@ ROOT_URLCONF = 'falconsfanclub.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["falconsfanclub/templates/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
