@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div class="container-fluid">
+  {% for Home in home %}
+  <h1><p class="text-center">{{ Home.welcome }}</p></h1>
+  <div class="row">
+    <img src="{% static Home.homeImage %}" alt="Falcons Logo">
+    <h5><p class="text-center">{{ Home.description }}</p></h5>
+  </div>
+</div>
+  {% endfor %}
+
+{% endblock %}

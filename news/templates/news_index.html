@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
 <div class="col-md-8 offset-md-2">
-     <h1>Falcons News</h1>
+     <h1><p class="text-center">Falcons News</p></h1>
       <hr>
       {% for story in news %}
       <h2><a href="{% url 'news_detail' story.pk%}">{{ story.title }}</a></h2>

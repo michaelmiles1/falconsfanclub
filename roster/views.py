@@ -2,7 +2,7 @@ from django.shortcuts import render
 from roster.models import Roster
 
 def roster_index(request):
-    players = Roster.objects.all()
+    players = Roster.objects.all().order_by('number')
     context = {
         'roster': players
     }
