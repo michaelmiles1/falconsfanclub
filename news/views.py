@@ -9,16 +9,6 @@ def news_index(request):
     }
     return render(request, "news_index.html", context)
 
-def news_category(request, category):
-    stories = Story.objects.filter(
-        categories__name__contains=category
-    ).order_by('-created_on')
-    context = {
-        "category": category,
-        "stories": stories
-    }
-    return render(request, "news_category.html", context)
-
 def news_detail(request, pk):
     story = Story.objects.get(pk=pk)
 
@@ -29,11 +19,11 @@ def news_detail(request, pk):
             comment = Comment(
                 author=form.cleaned_data["author"],
                 body=form.cleaned_data["body"],
-                post=post
+                story=story
             )
             comment.save()
 
-    comments = Comment.objects.filter(post=post)
+    comments = Comment.objects.filter(story=story)
     context = {
         "story": story,
         "comments": comments,

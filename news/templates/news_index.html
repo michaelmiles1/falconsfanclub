@@ -1,20 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 {% block page_content %}
 <div class="col-md-8 offset-md-2">
      <h1><p class="text-center">Falcons News</p></h1>
       <hr>
-      {% for story in news %}
-      <h2><a href="{% url 'news_detail' story.pk%}">{{ story.title }}</a></h2>
+      {% for story in stories %}
+      <h2><a href="{% url 'news_detail' story.pk%}" style="color:white">{{ story.title }}</a></h2>
       <small>
-         {{ story.created_on.date }} |&nbsp;
-         Categories:&nbsp;
-         {% for category in story.categories.all %}
-         <a href="{% url 'news_category' category.name %}">
-             {{ category.name }}
-         </a>&nbsp;
-         {% endfor %}
+         {{ story.created_on.date }} &nbsp;
      </small>
-     <p>{{ story.body | slice:":400" }}...</p>
+     <p>{{ story.body }}</p>
      {% endfor %}
  </div>
  {% endblock %}
